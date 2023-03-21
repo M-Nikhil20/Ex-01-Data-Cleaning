@@ -19,4 +19,48 @@ Remove the null values from the data
 Save the Clean data to the file
 
 # CODE
+## DATA SET
+```
+import pandas as pd
+df = pd.read_csv("Data_set.csv")
+print(df)
+df.head(10)
+df.info()
+df.isnull()
+df.isnull().sum()
+df['show_name'] = df['show_name'].fillna(df['aired_on'].mode()[0]) 
+df['aired_on'] = df ['aired_on'].fillna(df ['aired_on'].mode()[0]) 
+df[ 'original_network' ] = df['original_network'].fillna(df['aired_on'].mode()[0]) 
+df.head()
+df ['rating'] = df['rating'].fillna(df['rating'].mean())
+df['current_overall_rank'] = df['current_overall_rank'].fillna(df['current_overall_rank'].mean())
+df.head()
+df[ 'watchers']=df["watchers"].fillna (df['watchers'].median()) 
+df.head()
+df.info()
+df.isnull().sum()
+```
+## LOAN DATA
+```
+import pandas as pd
+df=pd.read_csv("/content/Loan_data.csv")
+print(df)
+df.head(10)
+df.info()
+df.isnull()
+df.isnull().sum()
+df['Loan_ID']=df['Loan_ID'].fillna(df['Dependents'].mode()[0])
+df['Dependents']=df['Dependents'].fillna(df['Dependents'].mode()[0])
+df['Education']=df['Education'].fillna(df['Dependents'].mode()[0])
+df.head()
+df['ApplicantIncome']=df['ApplicantIncome'].fillna(df['ApplicantIncome'].mean())
+df['Loan_Amount_Term']=df['Loan_Amount_Term'].fillna(df['Loan_Amount_Term'].mean())
+df.head()
+df['Credit_History']=df['Credit_History'].fillna(df['Credit_History'].median())
+df.head()
+df.info()
+df.isnull().sum()
+```
 # OUPUT
+![OUTPUT](ds%20ex1.png)
+![OUTPUT](output%202.png)
